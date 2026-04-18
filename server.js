@@ -12,8 +12,8 @@ const port = process.env.PORT || 3000;
 // Configuração do pool de conexão com o MariaDB
 const pool = mariadb.createPool({
     host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || 'MAri*1234@', // 🚨 CONFIRA SUA SENHA AQUI
+    user: process.env.DB_USER || 'appuser',
+    password: process.env.DB_PASSWORD || 'DBlog*1234@', // 🚨 CONFIRA SUA SENHA AQUI
     database: process.env.DB_NAME || 'logistica_db',
     connectionLimit: 5
 });
