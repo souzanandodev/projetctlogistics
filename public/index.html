@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Login - Sistema Web</title>
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <h2>Acesso ao Sistema</h2>
+        <form id="login-form">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            
+            <p id="mensagem-erro" style="display: none;"></p>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+            const mensagemErro = document.getElementById('mensagem-erro');
+
+            try {
+                // Envia as credenciais para um novo endpoint /api/login no server.js
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ usuario, senha })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Login bem-sucedido
+                    // Redireciona para a página inicial do sistema (home.html)
+                    window.location.href = 'home.html'; 
+                } else {
+                    // Login falhou
+                    mensagemErro.textContent = data.message || 'Usuário ou senha inválidos.';
+                    mensagemErro.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Erro de rede ou servidor:', error);
+                mensagemErro.textContent = 'Erro de conexão. Tente novamente.';
+                mensagemErro.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

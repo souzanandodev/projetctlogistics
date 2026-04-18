@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Listagem de Entidades</title>
+</head>
+<body class="home-page">
+    <header>
+        <nav class="navbar"> 
+            <div class="nav-links">
+                <a href="../home.html">Início</a>
+                <a href="#relatorio">Relatório</a>
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Listagem</a>
+                    <div class="dropdown-content">
+                        <a href="listagem/listar_pedidos.html">Pedidos</a>
+                        <a href="listagem/listar_entidades.html">Empresa/Cliente</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Cadastro</a>
+                    <div class="dropdown-content">
+                        <a href="cadastro/cadastro_entidades.html">Empresa/Cliente</a> 
+                        <a href="cadastro/cadastro_pedidos.html">Pedidos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="user-info">
+                <span>Bem-vindo, <strong id="nome-usuario">Carregando...</strong></strong></span>
+                <a href="/api/logout">Sair</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1>Listagem de Empresas (Cliente / Transportadora)</h1>
+        <p>Abaixo estão todas Empresas cadastrados no sistema.</p>
+
+        <div id="container-lista-entidades">
+            <p>Carregando Clinte/Transportadora...</p>
+        </div>
+
+        <p id="mensagem-listagem-entidades" style="margin-top: 20px; color: red;"></p>
+    </div>
+
+    <script src="../js/principal.js"></script>
+</body>
+</html>

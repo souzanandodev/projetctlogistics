@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <title>Editar Pedido</title>
+</head>
+<body class="home-page">
+    <header>
+        <nav class="navbar"> 
+            <div class="nav-links">
+                <a href="../home.html">Início</a>
+                <a href="#relatorio">Relatório</a>
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Listagem</a>
+                    <div class="dropdown-content">
+                        <a href="listagem/listar_pedidos.html">Pedidos</a>
+                        <a href="listagem/listar_entidades.html">Empresa/Cliente</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Cadastro</a>
+                    <div class="dropdown-content">
+                        <a href="cadastro/cadastro_entidades.html">Empresa/Cliente</a> 
+                        <a href="cadastro/cadastro_pedidos.html">Pedidos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="user-info">
+                <span>Bem-vindo, <strong id="nome-usuario">Carregando...</strong></strong></span>
+                <a href="/api/logout">Sair</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h2>Edição de Pedido de Remessa <span id="pedido-id-display"></span></h2> 
+        <p>Preencha e altere os dados do pedido selecionado.</p>
+
+        <form id="form-edicao-pedido" class="cadastro-form"> 
+            
+            <input type="hidden" id="pedido_id" name="id">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="entidade_origem_id">Entidade de Origem:</label>
+                    <select id="entidade_origem_id" name="entidade_origem_id" required>
+                        <option value="" disabled selected>Carregando entidades...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="entidade_destino_id">Entidade de Destino:</label>
+                    <select id="entidade_destino_id" name="entidade_destino_id" required>
+                        <option value="" disabled selected>Carregando entidades...</option>
+                    </select>
+                </div>
+            </div>
+
+            <label for="codigo_rastreio">Código de Rastreio:</label>
+            <input type="text" id="codigo_rastreio" name="codigo_rastreio" required>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="PENDENTE">PENDENTE</option>
+                        <option value="EM_TRANSPORTE">EM_TRANSPORTE</option>
+                        <option value="ENTREGUE">ENTREGUE</option>
+                        <option value="CANCELADO">CANCELADO</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="data_entrega_prevista">Entrega Prevista:</label>
+                    <input type="date" id="data_entrega_prevista" name="data_entrega_prevista" required>
+                </div>
+            </div>
+
+            <label for="descricao_carga">Descrição da Carga:</label>
+            <textarea id="descricao_carga" name="descricao_carga" rows="3"></textarea>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="peso">Peso (kg):</label>
+                    <input type="number" id="peso" name="peso" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor_frete">Valor do Frete (R$):</label>
+                    <input type="number" id="valor_frete" name="valor_frete" step="0.01" required>
+                </div>
+            </div>
+
+            <button type="submit" id="btn-salvar-edicao">Salvar Alterações</button>
+
+            <p id="mensagem-retorno-edicao"></p>
+
+        </form>
+
+    </div>
+
+    <script src="../js/principal.js"></script> 
+</body>
+</html>

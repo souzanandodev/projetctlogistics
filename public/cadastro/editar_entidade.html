@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Dados do MariaDB</title>
+</head>
+<body class="home-page">
+    <header>
+        <nav class="navbar"> 
+            <div class="nav-links">
+                <a href="../home.html">Início</a>
+                <a href="#relatorio">Relatório</a>
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Listagem</a>
+                    <div class="dropdown-content">
+                        <a href="listagem/listar_pedidos.html">Pedidos</a>
+                        <a href="listagem/listar_entidades.html">Empresa/Cliente</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Cadastro</a>
+                    <div class="dropdown-content">
+                        <a href="cadastro/cadastro_entidades.html">Empresa/Cliente</a> 
+                        <a href="cadastro/cadastro_pedidos.html">Pedidos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="user-info">
+                <span>Bem-vindo, <strong id="nome-usuario">Carregando...</strong></strong></span>
+                <a href="/api/logout">Sair</a>
+            </div>
+        </nav>
+    </header>
+    <div class="main-content">
+        <h1>Editar Entidade <span id="entidade-id-display"></span></h1> 
+        <p>Atualize os dados cadastrais da entidade selecionada.</p>
+        
+        <form id="form-edicao-entidade" class="cadastro-form">
+            
+            <label for="nome_fantasia">Nome Fantasia:</label>
+            <input type="text" id="nome_fantasia" name="nome_fantasia" required>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="razao_social">Razão Social:</label>
+                    <input type="text" id="razao_social" name="razao_social" required>
+                </div>
+            </div>
+
+            <label for="tipo">Tipo de Entidade:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="" disabled selected>Selecione o Tipo</option>
+                <option value="CLIENTE">Cliente</option>
+                <option value="FORNECEDOR">Fornecedor</option>
+                <option value="AMBOS">Ambos</option>
+            </select>
+
+            <label for="cnpj_cpf">CNPJ/CPF:</label>
+            <input type="text" id="cnpj_cpf" name="cnpj_cpf" placeholder="00.000.000/0000-00 ou 000.000.000-00" required>
+
+            <label for="endereco">Endereço (Rua, Número):</label>
+            <input type="text" id="endereco" name="endereco" required>
+
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" required>
+
+            <label for="estado">Estado (UF):</label>
+            <input type="text" id="estado" name="estado" maxlength="2" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email">
+
+            <p id="mensagem-retorno-edicao" style="margin-bottom: 20px;"></p>
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </div>
+    <script src="../js/principal.js"></script>
+</body>
+</html>

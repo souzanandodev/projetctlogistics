@@ -1,0 +1,27 @@
+# Ambientes Virtuais (Essencial)
+venv/
+.venv/
+env/
+bin/
+lib/
+share/
+
+# Byte-compiled / arquivos de cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Configurações de IDE e Ambiente
+.vscode/
+.idea/
+.env
+*.swp
+
+# Logs e Bancos de Dados locais
+*.log
+*.sqlite3
+
+# Distribuição / Pacotes
+dist/
+build/
+*.egg-info/

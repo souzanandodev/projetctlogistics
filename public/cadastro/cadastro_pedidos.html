@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <title>Cadastro de Pedidos</title>
+</head>
+<body class="home-page">
+    <header>
+        <nav class="navbar"> 
+            <div class="nav-links">
+                <a href="../home.html">Início</a>
+                <a href="#relatorio">Relatório</a>
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Listagem</a>
+                    <div class="dropdown-content">
+                        <a href="listagem/listar_pedidos.html">Pedidos</a>
+                        <a href="listagem/listar_entidades.html">Empresa/Cliente</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Cadastro</a>
+                    <div class="dropdown-content">
+                        <a href="cadastro/cadastro_entidades.html">Empresa/Cliente</a> 
+                        <a href="cadastro/cadastro_pedidos.html">Pedidos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="user-info">
+                <span>Bem-vindo, <strong id="nome-usuario">Carregando...</strong></strong></span>
+                <a href="/api/logout">Sair</a>
+            </div>
+        </nav>
+    </header>
+    <div class="main-content">
+        <h2>Cadastro de Pedidos/Remessas</h2>
+        
+        <form id="form-cadastro-pedido" class="cadastro-form">
+            
+            <label for="codigo_rastreio">Código de Rastreio:</label>
+            <input type="text" id="codigo_rastreio" name="codigo_rastreio" required>
+
+            <label for="entidade_origem_id">Entidade de Origem:</label>
+            <select id="entidade_origem_id" name="entidade_origem_id" required>
+                <option value="" disabled selected>Carregando Entidades...</option>
+                </select>
+
+            <label for="entidade_destino_id">Entidade de Destino:</label>
+            <select id="entidade_destino_id" name="entidade_destino_id" required>
+                <option value="" disabled selected>Carregando Entidades...</option>
+                </select>
+            
+            <label for="data_entrega_prevista">Data de Entrega Prevista:</label>
+            <input type="date" id="data_entrega_prevista" name="data_entrega_prevista" required>
+
+            <label for="descricao_carga">Descrição da Carga:</label>
+            <textarea id="descricao_carga" name="descricao_carga" rows="3" required></textarea>
+
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" step="0.01" required>
+
+            <label for="valor_frete">Valor do Frete (R$):</label>
+            <input type="number" id="valor_frete" name="valor_frete" step="0.01" required>
+            
+            <label for="status">Status Inicial (Opcional):</label>
+            <select id="status" name="status">
+                <option value="PENDENTE" selected>PENDENTE (Padrão)</option>
+                <option value="COLETA">COLETA AGENDADA</option>
+                <option value="EM_TRANSITO">EM TRÂNSITO</option>
+            </select>
+            
+            <p id="mensagem-retorno-pedido" style="margin-top: 15px;"></p>
+
+            <button type="submit">Cadastrar Pedido</button>
+        </form>
+    </div>
+
+    <script src="../js/principal.js"></script> 
+</body>
+</html>
